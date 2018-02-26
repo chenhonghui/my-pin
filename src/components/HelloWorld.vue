@@ -1,37 +1,55 @@
+<style lang="less">
+@import '~vux/src/styles/reset.less';
+</style>
 <template>
-  <div class="hello">
+<!--   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  </div>
+  <div> -->
+    <group>
+      <cell title="哈哈" value="value" @click.native="test"></cell>
+    </group>
   </div>
 </template>
 
+
 <script>
+import { Group, Cell } from 'vux'
 export default {
+  components: {
+    Group,
+    Cell
+  },
   name: 'HelloWorld',
   data () {
+     
+
     return {
       msg: '你好，世界'
     }
+  },
+  methods: {
+    test: function () {
+      console.log(1);
+    },
+    shout:function () {
+      console.log('我触发了它');
+    }
+  },
+  created (){
+    fetch("http://www.ygmduli.com/pintg/index.php?act=search&op=categoryAll")
+      .then(rsponse => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(function (e) {
+      console.log('oops! error:',e.message)
+      })
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;

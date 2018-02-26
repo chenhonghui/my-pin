@@ -32,11 +32,12 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json',".less"],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-    }
+    },
+    // symlink:true
   },
   module: {
     rules: [
@@ -88,5 +89,14 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+
+
+
 }
+//这里就是引用插件vux啦,
+const vuxLoader = require('vux-loader')
+const webpackConfig = module.exports // 原来的 module.exports 代码赋值给变量 webpackConfig，坑!
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui','duplicate-style']
+})
