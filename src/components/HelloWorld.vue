@@ -35,6 +35,8 @@ export default {
     },
     shout:function () {
       console.log('我触发了它');
+      //注释测试
+      
     }
   },
   created (){
