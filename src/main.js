@@ -24,3 +24,5 @@ Vue.use(ToastPlugin)
 //添加Fastclick移除移动端点击延迟
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
+
+// this is a test write
